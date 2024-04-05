@@ -25,10 +25,9 @@ def calculateMaxDD(cumret):
     maxDDD=np.max(drawdownduration)
     return maxDD, maxDDD, i
 
-def test_yfinance(sym):
-    #for symbol in  ['BTC-USD']: #['MSFT', 'IWO', 'VFINX','BTC-USD']:'
+def getdata_yfinance(sym,analysisper):
     print(">>", sym, end=' ... ')
     #data = yf.download(symbol, start='2001-10-26',end='2007-10-14')
-    data = yf.download(sym, period='5y')
+    data = yf.download(sym, period=analysisper)
     mpf.plot(data, type='candle')
     return data
