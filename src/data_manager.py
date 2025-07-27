@@ -86,6 +86,7 @@ def download_data(asset: str = 'MAC', market: str = 'TEFAS', start: str = '2025-
             data = pd.concat(data_list).reset_index(drop = True)
             data['Date'] = pd.to_datetime(data['date'])
             data.drop(columns='date', inplace=True)
+            data.set_index('Date', inplace=True)
             return data
         elif len(data_list) == 1:
             if len(data_list[0]) == 0:
