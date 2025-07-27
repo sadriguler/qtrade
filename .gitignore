@@ -9,3 +9,4 @@ Python codes/*
 *.pkl
 *.pickle
 *.csv
+*.code-workspace
