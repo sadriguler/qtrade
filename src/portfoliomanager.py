@@ -91,7 +91,11 @@ def define_empty_transaction_history():
         pd.DataFrame with columns of Date, asset, net_change, house, comment
             Date: date of the transaction
             asset: equity type, i.e. TRY, USD, stocks, etc.
-            net_change: nominal value of the change
+            market: market, where the asset is traded
+            amount: number of traded assets
+            position: buy or sell
+            execution price: price which the trade is realized
+            commissions: commissions for the trade acquired by the brokerage house
             house: brokerage house
             comment: comments regarding the transaction
     
@@ -99,5 +103,5 @@ def define_empty_transaction_history():
         transaction_history = define_empty_transaction_history()
     
     """
-    return DataFrame(columns=['Date','asset', 'market', 'amount', 'position', 'house','comment'])
+    return DataFrame(columns=['Date','asset', 'market', 'amount', 'position', 'execution_price', 'commissions', 'house','comment'])
 
