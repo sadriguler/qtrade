@@ -8,6 +8,7 @@ PROJECT_PATH = f'{dir_path}/..'
 
 DATA_PATH = f'{PROJECT_PATH}/data/' 
 DATA_PATH_USER = f'{DATA_PATH}/user_data/'
+DATA_PATH_MARKET = f'{DATA_PATH}/market_data/'
 
 YF_ASSET_NAMES = {
     'EURTRY' : 'EURTRY=X',
