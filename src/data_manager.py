@@ -120,8 +120,15 @@ def download_data(asset: str = 'MAC', market: str = 'TEFAS', start: str = '2025-
             data = yf.download(YF_ASSET_NAMES[asset], period = 'max', auto_adjust=False, start=start)
         else:
             data = yf.download(YF_ASSET_NAMES[asset], period = 'max', auto_adjust=False, start=start)
+    elif market == 'Crypto':
+        print(f'Downloading data for {asset}-USD!')
+        data = yf.download( f'{asset}-USD', 
+                            period = 'max', 
+                            auto_adjust=False, 
+                            start=start
+                            )
     else: 
-        print("Market name should be FOREX, NYSE, or TEFAS!")
+        print("Market name should be FOREX, NYSE, TEFAS, or Crypto!")
         return 0
     return data
         
