@@ -2,6 +2,8 @@ from pandas import Timestamp as Timestamp
 from pandas import DataFrame as DataFrame
 from datetime import datetime
 
+import pandas as pd
+
 def add_a_row_to_transaction_history(date: Timestamp,  asset: str, market: str, position: str, amount: float, house: str, comment: str, transaction_history: DataFrame):
     """
     Adds the new operation to the transaction history. The inputs should be aligned with the transaction history as specificied 
@@ -105,3 +107,18 @@ def define_empty_transaction_history():
     """
     return DataFrame(columns=['Date','asset', 'market', 'amount', 'position', 'execution_price', 'commissions', 'house','comment'])
 
+def add_new_transaction_to_transaction_history(transaction_history: pd.DataFrame, transactions: dict):
+    """
+    Updates the given transaction history (transaction_history) with the new transactions (transactions).
+
+    Args:
+        transaction_history (pd.DataFrame): _description_
+        transactions (dict): dictionary describing the new transactions
+
+    Returns:
+        transaction_history (pd.DataFrame): updated version of the transactions history
+    """
+    new_transactions = pd.DataFrame(transactions)
+    transaction_history = pd.concat([transaction_history, new_transactions], ignore_index = True)
+    transaction_history = transaction_history.sort_index()
+    return transaction_history
